@@ -50,30 +50,39 @@ import torch.nn as nn
 import numpy as np
 import matplotlib.pyplot as plt
 %matplotlib inline
+```
 
+```
 X = torch.linspace(1,70,70).reshape(-1,1)
-
+```
+```
 torch.manual_seed(71)
 e = torch.randint(-8,9,(70,1),dtype=torch.float)
-
+```
+```
 y = 2*X + 1 + e
 print(y.shape)
-
+``` 
+```
 plt.scatter(X.numpy(), y.numpy(),color='red')  # Scatter plot of data points
 plt.xlabel('x')
 plt.ylabel('y')
 plt.title('Generated Data for Linear Regression')
 plt.show()
-
+```
+```
 torch.manual_seed(59)
 model = nn.Linear(1, 1)
 print('Weight:', model.weight.item())
 print('Bias:  ', model.bias.item())
-
+```
+```
 loss_function = nn.MSELoss()
 
 optimizer = torch.optim.SGD(model.parameters(), lr=0.0001)
 
+```
+```
 epochs = 50
 losses = []
 
@@ -90,7 +99,8 @@ for epoch in range(1, epochs + 1):
     print(f'epoch: {epoch:2}  loss: {loss.item():10.8f}  '
           f'weight: {model.weight.item():10.8f}  '
           f'bias: {model.bias.item():10.8f}')
-
+```
+```
 plt.plot(range(epochs), losses)
 plt.ylabel('Loss')
 plt.xlabel('epoch');
@@ -104,6 +114,8 @@ w1, b1 = model.weight.item(), model.bias.item()
 
 y1 = x1 * w1 + b1
 
+```
+```
 print(f'Final Weight: {w1:.8f}, Final Bias: {b1:.8f}')
 print(f'X range: {x1.numpy()}')
 print(f'Predicted Y values: {y1.numpy()}')
