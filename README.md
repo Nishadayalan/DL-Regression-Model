@@ -128,10 +128,11 @@ plt.title('Trained Model: Best-Fit Line')
 plt.legend()
 plt.show()
 
+
+
+```
+```
 torch.save(model.state_dict(), 'model.pt')
-
-
-
 ```
 
 ### Dataset Information
